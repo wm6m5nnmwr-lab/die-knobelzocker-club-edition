@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a4f33">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Knobelzocker">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+<title>Die Knobelzocker – Club Edition</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand">
+    <div class="dice-wrap"><img src="assets/dice.png" alt="Drei Würfel"></div>
+    <div class="brand-text">
+      <div class="edition">Club Edition</div>
+      <h1>Die Knobelzocker</h1>
+      <p>„Schocken heißt das Spiel“</p>
+    </div>
+  </div>
+  <div class="header-info">
+    <div><div class="label">Turniername</div><div class="value" id="headerTournamentName">–</div></div>
+    <div><div class="label">Turnierdatum</div><div class="value" id="headerDate">–</div></div>
+    <div><div class="label">Beginn</div><div class="value" id="headerStartTime">–</div></div>
+    <div><div class="label">Letzte Runde spätestens</div><div class="value" id="headerLastRoundTime">–</div></div>
+    <div><div class="label">Aktuelle Runde</div><div class="value" id="headerRound">–</div></div>
+  </div>
+</header>
+
+<div id="installHint" class="install-hint hidden" role="status">
+    <div><strong>Als App installieren</strong><span id="installHintText">In Safari über „Teilen“ → „Zum Home-Bildschirm“.</span></div>
+    <button id="closeInstallHintBtn" class="secondary" type="button">Schließen</button>
+  </div>
+  <main class="main-grid">
+  <section class="panel toolbar-panel">
+    <div class="controls">
+      <div class="dropdown">
+        <button id="profileMenuBtn" class="secondary" type="button">Spielerprofile ▾</button>
+        <div id="profileMenu" class="dropdown-menu hidden">
+          <div class="menu-head">
+            <h2>Spielerprofile</h2>
+            <button id="closeProfileMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
+          </div>
+          <p class="note">Profile bleiben gespeichert. Du kannst mehrere Teilnehmer nacheinander auswählen; das Fenster bleibt dabei geöffnet.</p>
+          <form id="profileForm" class="profile-form">
+            <input id="newName" type="text" maxlength="24" autocomplete="off" placeholder="Neues Spielerprofil">
+            <button class="primary" type="submit">Profil anlegen</button>
+          </form>
+          <div id="formMessage" class="message"></div>
+          <div id="profileGrid" class="profile-grid"></div>
+          <div class="date-row">
+            <strong>Turnierart</strong>
+            <label class="date-wrap">
+              <select id="tournamentType">
+                <option value="Knobelabend">Knobelabend</option>
+                <option value="Knobelmarathon">Knobelmarathon</option>
+                <option value="Sonstiges">Sonstiges …</option>
+              </select>
+            </label>
+          </div>
+          <div id="customTournamentRow" class="date-row hidden">
+            <strong>Eigener Turniername</strong>
+            <label class="date-wrap"><input id="customTournamentName" type="text" maxlength="50" placeholder="Turniername"></label>
+          </div>
+          <div class="date-row">
+            <strong>Turnierdatum</strong>
+            <label class="date-wrap"><input id="tournamentDate" type="date"></label>
+          </div>
+          <div class="time-grid">
+            <div class="time-field">
+              <label for="tournamentStartTime">Anfangszeit</label>
+              <div class="time-wrap"><input id="tournamentStartTime" type="time"></div>
+            </div>
+            <div class="time-field">
+              <label for="lastRoundStartTime">Spätester Beginn der letzten Spielrunde</label>
+              <div class="time-wrap"><input id="lastRoundStartTime" type="time"></div>
+            </div>
+          </div>
+          <div class="controls" style="margin-top:14px">
+            <button id="startTournamentBtn" class="primary" type="button">Neues Turnier starten</button>
+            <button id="allBtn" class="secondary" type="button">Alle auswählen</button>
+            <button id="noneBtn" class="secondary" type="button">Keine auswählen</button>
+            <button id="resetBtn" class="danger" type="button">Alles löschen</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button id="rulesBtn" class="secondary" type="button">Turnierregeln ▾</button>
+        <div id="rulesMenu" class="dropdown-menu hidden">
+          <div class="menu-head">
+            <h2>Turnierregeln</h2>
+            <button id="closeRulesMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
+          </div>
+          <p class="note">Die Regeln können jederzeit geändert und dauerhaft gespeichert werden.</p>
+          <textarea id="rulesEditor" class="rules-editor" aria-label="Turnierregeln bearbeiten"></textarea>
+          <div class="controls" style="margin-top:12px">
+            <button id="saveRulesBtn" class="primary" type="button">Regeln speichern</button>
+            <button id="resetRulesBtn" class="secondary" type="button">Standardregeln wiederherstellen</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button id="archiveBtn" class="secondary" type="button">Turnierhistorie ▾</button>
+        <div id="archiveMenu" class="dropdown-menu right hidden">
+          <div class="menu-head">
+            <h2>Beendete Turniere</h2>
+            <button id="closeArchiveMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
+          </div>
+          <p class="note">Ein beendetes Turnier kann wieder geöffnet und fortgesetzt werden.</p>
+          <div id="archiveList" class="archive-list"></div>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button id="statsBtn" class="secondary" type="button">Statistik ▾</button>
+        <div id="statsMenu" class="dropdown-menu right stats-menu hidden">
+          <div class="menu-head">
+            <h2>Clubstatistik</h2>
+            <button id="closeStatsMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
+          </div>
+          <div class="stats-filter">
+            <label for="statsType">Auswertung nach Turnierart</label>
+            <select id="statsType">
+              <option value="Alle">Alle Turniere</option>
+              <option value="Knobelabend">Knobelabend</option>
+              <option value="Knobelmarathon">Knobelmarathon</option>
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div id="statsSummary" class="stats-summary"></div>
+          <div class="stats-table-wrap">
+            <table>
+              <thead><tr><th>Spieler</th><th>Turniere</th><th>Siege</th><th>Ø Niederlagen</th></tr></thead>
+              <tbody id="statsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <button id="installAppBtn" class="secondary hidden" type="button">App installieren</button>
+        <button id="startMainBtn" class="primary" type="button">Turnier starten</button>
+      <button id="undoBtn" class="secondary" type="button">Letzte Runde rückgängig</button>
+      <button id="endBtn" class="danger" type="button">Turnier beenden</button>
+    </div>
+  </section>
+
+  <section class="panel game-panel">
+    <div class="game-heading">
+      <h2 id="roundTitle">Noch kein Turnier gestartet</h2>
+      <div id="clockNow" class="clock-now">--:--:--</div>
+    </div>
+    <div id="tournamentClock" class="tournament-clock inactive">
+      <div class="clock-line">
+        <div><span class="clock-label">Turnierzeit</span><strong id="clockWindow">–</strong></div>
+        <div class="clock-remaining"><span class="clock-label">Verbleibend</span><strong id="clockRemaining">–</strong></div>
+      </div>
+      <div class="clock-track"><div id="clockProgress" class="clock-progress"></div></div>
+      <div id="clockMessage" class="clock-message">Noch kein Turnier gestartet.</div>
+    </div>
+    <div id="status" class="status">Öffne die Spielerprofile und wähle mindestens zwei Teilnehmer aus.</div>
+    <div id="playersGrid" class="players-grid"></div>
+    <div class="controls" style="margin-top:16px">
+      <button id="nextRoundBtn" class="primary big-next" type="button">Nächste Runde →</button>
+    </div>
+  </section>
+
+  <aside class="panel ranking-panel">
+    <h2>Rangliste</h2>
+    <table>
+      <thead><tr><th>Platz</th><th>Spieler</th><th>Niederlagen</th></tr></thead>
+      <tbody id="rankingBody"><tr><td colspan="3">Noch kein Turnier gestartet.</td></tr></tbody>
+    </table>
+  </aside>
+
+  <section class="panel history-panel">
+    <h2>Rundenhistorie</h2>
+    <div id="historyList" class="history-list"><div class="empty">Noch keine Runde gespeichert.</div></div>
+  </section>
+</main>
+</div>
+<footer style="max-width:1380px;margin:0 auto;padding:0 24px 18px;color:#f2c45b;display:flex;justify-content:space-between"><strong>Die Knobelzocker – Club Edition</strong><span>Version 1.3</span></footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
