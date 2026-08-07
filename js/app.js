@@ -6,7 +6,7 @@ var KEY="knobelzocker_club_edition_1_1";
 var LEGACY_KEY="knobelzocker_tournament_v12";
 var LEGACY_KEY="knobelzocker_tournament_v8";
 var COLORS=["#6ec5ff","#ff9c9c","#ffd36e","#8fe3b0","#c7a5ff","#ffb870","#8fdde7","#f58ec8","#b8d77b","#9eb7ff"];
-var DEFAULT_RULES="1. Es nehmen mindestens zwei und höchstens zehn Spieler teil.\n\n2. Das Zeitfenster des Turniers wird vor dem Turnierstart festgelegt.\n\n3. Nach jeder Runde werden alle Verlierer ausgewählt.\n\n4. Spieler, die eine Runde aussetzen, zählen in dieser Runde ebenfalls als Verlierer.\n\n5. Jeder Spieler kann pro Runde höchstens einmal als Verlierer gewertet werden.\n\n6. Gewinner ist am Ende des festgelegten Zeitfensters der Spieler mit den wenigsten verlorenen Runden.\n\n7. Bei gleicher Anzahl verlorener Runden spielen die Erstplatzierten den Sieger aus.";
+var DEFAULT_RULES="1. Es nehmen mindestens zwei und höchstens zwölf Spieler teil.\n\n2. Das Zeitfenster des Turniers wird vor dem Turnierstart festgelegt.\n\n3. Nach jeder Runde werden alle Verlierer ausgewählt.\n\n4. Spieler, die eine Runde aussetzen, zählen in dieser Runde ebenfalls als Verlierer.\n\n5. Jeder Spieler kann pro Runde höchstens einmal als Verlierer gewertet werden.\n\n6. Gewinner ist am Ende des festgelegten Zeitfensters der Spieler mit den wenigsten verlorenen Runden.\n\n7. Bei gleicher Anzahl verlorener Runden spielen die Erstplatzierten den Sieger aus.";
 var state={profiles:[],tournament:null,archive:[],rules:DEFAULT_RULES};
 var selected={};
 
@@ -108,7 +108,7 @@ function addProfile(){
   var input=E("newName");
   var name=input.value.trim();
   if(!name){showMessage("Bitte einen Namen eingeben.");input.focus();return}
-  if(state.profiles.length>=10){showMessage("Maximal 10 Spielerprofile sind möglich.");return}
+  if(state.profiles.length>=12){showMessage("Maximal 12 Spielerprofile sind möglich.");return}
   for(var i=0;i<state.profiles.length;i++){
     if(state.profiles[i].name.toLowerCase()===name.toLowerCase()){
       showMessage("Dieses Profil gibt es bereits.");return
@@ -216,12 +216,29 @@ function renderGame(){
   headerLastRoundTime.textContent=state.tournament.lastRoundTime||"–";
 
   var chosen=[];
-  state.tournament.players.forEach(function(player){
+  state.tournamen
+  grid.className="players-grid players-"+t.players.length;
+  t.players.forEach(function(player){
     var btn=document.createElement("button");
     btn.type="button";
     btn.className="player-card"+(selected[player.name]?" selected":"");
-    btn.style.background=player.color;
-    btn.textContent=player.name;
+
+    var dot=document.createElement("span");
+    dot.className="player-dot";
+    dot.style.background=player.color;
+
+    var name=document.createElement("span");
+    name.className="player-name";
+    name.textContent=player.name;
+
+    var losses=document.createElement("span");
+    losses.className="player-losses";
+    losses.textContent=t.losses[player.name];
+
+    btn.appendChild(dot);
+    btn.appendChild(name);
+    btn.appendChild(losses);
+
     btn.addEventListener("click",function(){
       selected[player.name]=!selected[player.name];
       renderGame();

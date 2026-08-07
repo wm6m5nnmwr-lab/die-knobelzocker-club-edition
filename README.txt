@@ -1,4 +1,4 @@
-DIE KNOBELZOCKER – CLUB EDITION 1.3 – PWA
+DIE KNOBELZOCKER – CLUB EDITION 1.3.1 – PWA
 
 START
 1. ZIP-Datei entpacken.
@@ -41,3 +41,11 @@ und Offline-Cache nicht vollständig.
 
 IPAD
 Safari öffnen → Webadresse aufrufen → Teilen → Zum Home-Bildschirm
+
+
+VERSION 1.3.1 – PATCH
+- Kompaktere Desktop-Ansicht bei begrenzter Bildschirmhöhe
+- Kleinerer Kopfbereich und geringere Abstände
+- Kompaktere Turnieruhr und Spielerkacheln
+- Verbesserte Darstellung auf Mac, PC und iPad
+- Neuer PWA-Cache

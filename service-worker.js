@@ -1,7 +1,7 @@
-const CACHE_NAME="knobelzocker-club-edition-1.3";
+const CACHE_NAME="knobelzocker-1.4.0a-spieltisch-12";
 const APP_FILES=[
   "./","./index.html","./css/styles.css","./js/app.js","./manifest.webmanifest",
-  "./assets/dice.png","./assets/icon-180.png","./assets/icon-192.png",
+  "./assets/dice.png","./assets/club-logo.png","./assets/icon-180.png","./assets/icon-192.png",
   "./assets/icon-512.png","./assets/icon-maskable-512.png"
 ];
 self.addEventListener("install",event=>{

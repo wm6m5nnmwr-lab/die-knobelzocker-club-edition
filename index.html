@@ -16,21 +16,25 @@
 </head>
 <body>
 <div class="app">
-<header class="topbar">
-  <div class="brand">
-    <div class="dice-wrap"><img src="assets/dice.png" alt="Drei Würfel"></div>
-    <div class="brand-text">
-      <div class="edition">Club Edition</div>
+<header class="app-header">
+  <div class="brand-block">
+    <img class="club-logo" src="assets/club-logo.png" alt="Logo der Knobelzocker">
+    <div class="brand-copy">
       <h1>Die Knobelzocker</h1>
       <p>„Schocken heißt das Spiel“</p>
     </div>
   </div>
-  <div class="header-info">
-    <div><div class="label">Turniername</div><div class="value" id="headerTournamentName">–</div></div>
-    <div><div class="label">Turnierdatum</div><div class="value" id="headerDate">–</div></div>
-    <div><div class="label">Beginn</div><div class="value" id="headerStartTime">–</div></div>
-    <div><div class="label">Letzte Runde spätestens</div><div class="value" id="headerLastRoundTime">–</div></div>
-    <div><div class="label">Aktuelle Runde</div><div class="value" id="headerRound">–</div></div>
+  <div class="version-badge">
+    <span>Club Edition</span>
+    <strong>Version 1.4.0a</strong>
+    <small>Neues Fundament</small>
+  </div>
+  <div class="tournament-strip" aria-label="Aktuelle Turnierdaten">
+    <div class="tournament-item"><span>Turnier</span><strong id="headerTournamentName">–</strong></div>
+    <div class="tournament-item"><span>Datum</span><strong id="headerDate">–</strong></div>
+    <div class="tournament-item"><span>Beginn</span><strong id="headerStartTime">–</strong></div>
+    <div class="tournament-item"><span>Letzte Runde</span><strong id="headerLastRoundTime">–</strong></div>
+    <div class="tournament-item round-item"><span>Runde</span><strong id="headerRound">–</strong></div>
   </div>
 </header>
 
@@ -153,41 +157,42 @@
     </div>
   </section>
 
-  <section class="panel game-panel">
-    <div class="game-heading">
-      <h2 id="roundTitle">Noch kein Turnier gestartet</h2>
-      <div id="clockNow" class="clock-now">--:--:--</div>
-    </div>
-    <div id="tournamentClock" class="tournament-clock inactive">
-      <div class="clock-line">
-        <div><span class="clock-label">Turnierzeit</span><strong id="clockWindow">–</strong></div>
-        <div class="clock-remaining"><span class="clock-label">Verbleibend</span><strong id="clockRemaining">–</strong></div>
+  <section class="panel game-panel play-panel">
+      <div class="game-heading">
+        <div><span class="section-kicker">Spieltisch</span><h2 id="roundTitle">Noch kein Turnier gestartet</h2></div>
+        <div id="clockNow" class="clock-now">--:--:--</div>
       </div>
-      <div class="clock-track"><div id="clockProgress" class="clock-progress"></div></div>
-      <div id="clockMessage" class="clock-message">Noch kein Turnier gestartet.</div>
-    </div>
-    <div id="status" class="status">Öffne die Spielerprofile und wähle mindestens zwei Teilnehmer aus.</div>
-    <div id="playersGrid" class="players-grid"></div>
-    <div class="controls" style="margin-top:16px">
-      <button id="nextRoundBtn" class="primary big-next" type="button">Nächste Runde →</button>
-    </div>
-  </section>
+      <div id="tournamentClock" class="tournament-clock inactive">
+        <div class="clock-line">
+          <div><span class="clock-label">Turnierzeit</span><strong id="clockWindow">–</strong></div>
+          <div class="clock-remaining"><span class="clock-label">Verbleibend</span><strong id="clockRemaining">–</strong></div>
+        </div>
+        <div class="clock-track"><div id="clockProgress" class="clock-progress"></div></div>
+        <div id="clockMessage" class="clock-message">Noch kein Turnier gestartet.</div>
+      </div>
+      <div id="status" class="status">Öffne die Spielerprofile und wähle mindestens zwei Teilnehmer aus.</div>
+      <div id="playersGrid" class="players-grid"></div>
+      <div class="play-actions"><button id="nextRoundBtn" class="primary big-next" type="button">Nächste Runde →</button></div>
+    </section>
 
-  <aside class="panel ranking-panel">
-    <h2>Rangliste</h2>
-    <table>
-      <thead><tr><th>Platz</th><th>Spieler</th><th>Niederlagen</th></tr></thead>
-      <tbody id="rankingBody"><tr><td colspan="3">Noch kein Turnier gestartet.</td></tr></tbody>
-    </table>
-  </aside>
+    <aside class="panel ranking-panel">
+      <span class="section-kicker">Live</span>
+      <h2>🏆 Rangliste</h2>
+      <div class="ranking-wrap">
+        <table class="ranking-table">
+          <thead><tr><th>Platz</th><th>Spieler</th><th>Verluste</th></tr></thead>
+          <tbody id="rankingBody"><tr><td colspan="3">Noch kein Turnier gestartet.</td></tr></tbody>
+        </table>
+      </div>
+    </aside>
 
-  <section class="panel history-panel">
-    <h2>Rundenhistorie</h2>
-    <div id="historyList" class="history-list"><div class="empty">Noch keine Runde gespeichert.</div></div>
-  </section>
+    <section class="panel history-panel quick-history-panel">
+      <h2>Letzte Runden</h2>
+      <div id="historyList" class="history-list"><div class="empty">Noch keine Runde gespeichert.</div></div>
+    </section>
 </main>
 </div>
-<footer style="max-width:1380px;margin:0 auto;padding:0 24px 18px;color:#f2c45b;display:flex;justify-content:space-between"><strong>Die Knobelzocker – Club Edition</strong><span>Version 1.3</span></footer>
+<footer style="max-width:1380px;margin:0 auto;padding:0 24px 18px;color:#f2c45b;display:flex;justify-content:space-between"><strong>Die Knobelzocker – Club Edition</strong><span>Version 1.4.0a</span></footer>
 
 <script src="js/app.js"></script>
 </body>
