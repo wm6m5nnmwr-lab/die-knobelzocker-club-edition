@@ -82,11 +82,11 @@
 <section class="kz-hidden-menus">
  <div id="profileMenu" class="dropdown-menu hidden">
   <div class="menu-head"><h2>Spielerprofile</h2><button id="closeProfileMenuBtn" class="secondary">Schließen ×</button></div>
-  <div class="profile-form"><label><span>Neues Spielerprofil</span><input id="newName" maxlength="24" placeholder="Spielername"></label><button id="addProfileBtn" class="primary">Profil anlegen</button></div>
+  <form id="profileForm" class="profile-form"><label><span>Neues Spielerprofil</span><input id="newName" maxlength="24" autocomplete="off" placeholder="Spielername"></label><button id="addProfileBtn" class="primary" type="submit">Profil anlegen</button></form>
   <div id="formMessage" class="message"></div><div id="profileGrid" class="profile-grid"></div>
   <div class="tournament-settings">
    <label><span>Turnierart</span><select id="tournamentType"><option>Knobelabend</option><option>Knobelmarathon</option><option>Sonstiges</option></select></label>
-   <label id="customTournamentLabel" class="hidden"><span>Eigener Turniername</span><input id="customTournamentName"></label>
+   <label id="customTournamentRow" class="hidden"><span>Eigener Turniername</span><input id="customTournamentName"></label>
    <label><span>Turnierdatum</span><input id="tournamentDate" type="date"></label>
    <label><span>Anfangszeit</span><input id="tournamentStartTime" type="time"></label>
    <label><span>Spätester Beginn der letzten Spielrunde</span><input id="lastRoundStartTime" type="time"></label>

@@ -1,3 +1,11 @@
-# 1.4.0a-3
+# Änderungsprotokoll
 
-D-002 Header unverändert. D-003 Menüleiste und D-004 Spieltisch gemäß Freigabe umgesetzt: 12 Spieler, 4×3-Raster, Profilfarben, Würfelanzeige, rote Verlierermarkierung, Zeitbalken, Rangliste und drei letzte Runden.
+## 1.4.0a-3.2.1 – lokale Testversion / Funktionskorrektur
+
+- Basis ist die lokal öffnende Version 1.4.0a-3.1.
+- index.html wurde nicht verändert.
+- Spieltisch-Renderfehler behoben.
+- „Nächste Runde“ korrekt zwischen Turnierstart und laufendem Turnier unterschieden.
+- Doppelte Button-Verknüpfung entfernt.
+- Service Worker wird bei file://-Tests nicht registriert; auf GitHub Pages weiterhin normal.
+- D-002, D-003 und D-004 optisch unverändert.

@@ -216,7 +216,7 @@ function renderGame(){
   headerLastRoundTime.textContent=state.tournament.lastRoundTime||"–";
 
   var chosen=[];
-  state.tournamen
+  var t=state.tournament;
   grid.className="players-grid players-"+t.players.length;
   t.players.forEach(function(player){
     var btn=document.createElement("button");
@@ -569,12 +569,18 @@ window.addEventListener("DOMContentLoaded",function(){
   E("profileForm").addEventListener("submit",function(ev){ev.preventDefault();addProfile()});
   E("startTournamentBtn").addEventListener("click",startTournament);
   E("startMainBtn").addEventListener("click",function(){
+    if(state.tournament){
+      nextRound();
+      return;
+    }
     if(!state.profiles.length){
       closeMenus("profileMenu");
       positionMenu(E("profileMenu"),E("profileMenuBtn"));
       document.body.classList.add("menu-open");
       E("newName").focus();
-    }else startTournament();
+    }else{
+      startTournament();
+    }
   });
   E("allBtn").addEventListener("click",function(){
     state.profiles.forEach(function(p){p.active=true});save();renderProfiles();
@@ -625,7 +631,7 @@ function showInstallGuidance(){
   hint.classList.remove("hidden");
 }
 function setupPWA(){
-  if("serviceWorker" in navigator){
+  if("serviceWorker" in navigator && location.protocol!=="file:"){
     window.addEventListener("load",()=>{
       navigator.serviceWorker.register("./service-worker.js").catch(console.error);
     });
@@ -685,7 +691,6 @@ window.addEventListener("DOMContentLoaded",setupPWA);
   var hl=E("historyList");if(hl&&hl.children.length>3){[].slice.call(hl.children,0,-3).forEach(function(x){x.style.display="none"})}
  }
  document.addEventListener("DOMContentLoaded",function(){
-  var s=E("startMainBtn"),n=E("nextRoundBtn");if(s&&n)s.onclick=function(){n.click()};
   var f=E("showFullHistoryBtn"),a=E("archiveBtn");if(f&&a)f.onclick=function(){a.click()};
   ["playersGrid","rankingBody","historyList"].forEach(function(i){var x=E(i);if(x)new MutationObserver(enhance).observe(x,{childList:true,subtree:true})});
   setTimeout(enhance,10)
