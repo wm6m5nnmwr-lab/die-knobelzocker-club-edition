@@ -667,3 +667,27 @@ function setupPWA(){
   if(isIOSDevice()&&!isStandaloneMode())setTimeout(showInstallGuidance,900);
 }
 window.addEventListener("DOMContentLoaded",setupPWA);
+
+(function(){
+ function E(i){return document.getElementById(i)}
+ function dice(n){n=+n||0;if(!n)return '<b class="zero-loss">0</b>';var d='<i class="mini-die"><u></u></i>';return n<=5?'<span class="dice">'+d.repeat(n)+'</span>':'<span class="dice">'+d+'<b>× '+n+'</b></span>'}
+ function enhance(){
+  var g=E("playersGrid"); if(g){
+   var bs=[].slice.call(g.querySelectorAll(".player-card")); g.className="players-grid players-"+bs.length;
+   bs.forEach(function(b){
+    if(!b.dataset.n)b.dataset.n=b.textContent.trim();
+    var n=b.dataset.n, loss=0; try{loss=state.tournament&&state.tournament.losses?state.tournament.losses[n]||0:0}catch(e){}
+    if(!b.querySelector(".player-name")) b.innerHTML='<span class="profile-mark"></span><span class="player-name"></span><span class="loss-view"></span>';
+    b.querySelector(".player-name").textContent=n;b.querySelector(".loss-view").innerHTML=dice(loss);
+   });
+  }
+  var rb=E("rankingBody");if(rb){[].slice.call(rb.rows).forEach(function(r,i){if(r.cells.length==3&&!r.cells[0].colSpan){var n=parseInt(r.cells[2].textContent)||0;if(i<3)r.cells[0].textContent=["🥇","🥈","🥉"][i];r.cells[2].innerHTML=dice(n)}})}
+  var hl=E("historyList");if(hl&&hl.children.length>3){[].slice.call(hl.children,0,-3).forEach(function(x){x.style.display="none"})}
+ }
+ document.addEventListener("DOMContentLoaded",function(){
+  var s=E("startMainBtn"),n=E("nextRoundBtn");if(s&&n)s.onclick=function(){n.click()};
+  var f=E("showFullHistoryBtn"),a=E("archiveBtn");if(f&&a)f.onclick=function(){a.click()};
+  ["playersGrid","rankingBody","historyList"].forEach(function(i){var x=E(i);if(x)new MutationObserver(enhance).observe(x,{childList:true,subtree:true})});
+  setTimeout(enhance,10)
+ });
+})();

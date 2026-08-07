@@ -64,154 +64,56 @@
     <div><strong>Als App installieren</strong><span id="installHintText">In Safari über „Teilen“ → „Zum Home-Bildschirm“.</span></div>
     <button id="closeInstallHintBtn" class="secondary" type="button">Schließen</button>
   </div>
-  <main class="main-grid">
-  <section class="panel toolbar-panel">
-    <div class="controls">
-      <div class="dropdown">
-        <button id="profileMenuBtn" class="secondary" type="button">Spielerprofile ▾</button>
-        <div id="profileMenu" class="dropdown-menu hidden">
-          <div class="menu-head">
-            <h2>Spielerprofile</h2>
-            <button id="closeProfileMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
-          </div>
-          <p class="note">Profile bleiben gespeichert. Du kannst mehrere Teilnehmer nacheinander auswählen; das Fenster bleibt dabei geöffnet.</p>
-          <form id="profileForm" class="profile-form">
-            <input id="newName" type="text" maxlength="24" autocomplete="off" placeholder="Neues Spielerprofil">
-            <button class="primary" type="submit">Profil anlegen</button>
-          </form>
-          <div id="formMessage" class="message"></div>
-          <div id="profileGrid" class="profile-grid"></div>
-          <div class="date-row">
-            <strong>Turnierart</strong>
-            <label class="date-wrap">
-              <select id="tournamentType">
-                <option value="Knobelabend">Knobelabend</option>
-                <option value="Knobelmarathon">Knobelmarathon</option>
-                <option value="Sonstiges">Sonstiges …</option>
-              </select>
-            </label>
-          </div>
-          <div id="customTournamentRow" class="date-row hidden">
-            <strong>Eigener Turniername</strong>
-            <label class="date-wrap"><input id="customTournamentName" type="text" maxlength="50" placeholder="Turniername"></label>
-          </div>
-          <div class="date-row">
-            <strong>Turnierdatum</strong>
-            <label class="date-wrap"><input id="tournamentDate" type="date"></label>
-          </div>
-          <div class="time-grid">
-            <div class="time-field">
-              <label for="tournamentStartTime">Anfangszeit</label>
-              <div class="time-wrap"><input id="tournamentStartTime" type="time"></div>
-            </div>
-            <div class="time-field">
-              <label for="lastRoundStartTime">Spätester Beginn der letzten Spielrunde</label>
-              <div class="time-wrap"><input id="lastRoundStartTime" type="time"></div>
-            </div>
-          </div>
-          <div class="controls" style="margin-top:14px">
-            <button id="startTournamentBtn" class="primary" type="button">Neues Turnier starten</button>
-            <button id="allBtn" class="secondary" type="button">Alle auswählen</button>
-            <button id="noneBtn" class="secondary" type="button">Keine auswählen</button>
-            <button id="resetBtn" class="danger" type="button">Alles löschen</button>
-          </div>
-        </div>
-      </div>
+  <main class="kz-workspace">
+<section class="panel kz-menu">
+ <div class="kz-menu-left">
+  <button id="profileMenuBtn" class="kz-menu-btn">Spielerprofile ▾</button>
+  <button id="rulesBtn" class="kz-menu-btn">Turnierregeln ▾</button>
+  <button id="archiveBtn" class="kz-menu-btn">Turnierhistorie ▾</button>
+  <button id="statsBtn" class="kz-menu-btn">Statistik ▾</button>
+ </div>
+ <div class="kz-menu-right">
+  <button id="startMainBtn" class="kz-action kz-next">Nächste Runde</button>
+  <button id="undoBtn" class="kz-action kz-undo">Letzte Runde rückgängig</button>
+  <button id="endBtn" class="kz-action kz-end">Turnier beenden</button>
+ </div>
+</section>
 
-      <div class="dropdown">
-        <button id="rulesBtn" class="secondary" type="button">Turnierregeln ▾</button>
-        <div id="rulesMenu" class="dropdown-menu hidden">
-          <div class="menu-head">
-            <h2>Turnierregeln</h2>
-            <button id="closeRulesMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
-          </div>
-          <p class="note">Die Regeln können jederzeit geändert und dauerhaft gespeichert werden.</p>
-          <textarea id="rulesEditor" class="rules-editor" aria-label="Turnierregeln bearbeiten"></textarea>
-          <div class="controls" style="margin-top:12px">
-            <button id="saveRulesBtn" class="primary" type="button">Regeln speichern</button>
-            <button id="resetRulesBtn" class="secondary" type="button">Standardregeln wiederherstellen</button>
-          </div>
-        </div>
-      </div>
+<section class="kz-hidden-menus">
+ <div id="profileMenu" class="dropdown-menu hidden">
+  <div class="menu-head"><h2>Spielerprofile</h2><button id="closeProfileMenuBtn" class="secondary">Schließen ×</button></div>
+  <div class="profile-form"><label><span>Neues Spielerprofil</span><input id="newName" maxlength="24" placeholder="Spielername"></label><button id="addProfileBtn" class="primary">Profil anlegen</button></div>
+  <div id="formMessage" class="message"></div><div id="profileGrid" class="profile-grid"></div>
+  <div class="tournament-settings">
+   <label><span>Turnierart</span><select id="tournamentType"><option>Knobelabend</option><option>Knobelmarathon</option><option>Sonstiges</option></select></label>
+   <label id="customTournamentLabel" class="hidden"><span>Eigener Turniername</span><input id="customTournamentName"></label>
+   <label><span>Turnierdatum</span><input id="tournamentDate" type="date"></label>
+   <label><span>Anfangszeit</span><input id="tournamentStartTime" type="time"></label>
+   <label><span>Spätester Beginn der letzten Spielrunde</span><input id="lastRoundStartTime" type="time"></label>
+  </div>
+  <div class="controls"><button id="startTournamentBtn" class="primary">Neues Turnier starten</button><button id="allBtn" class="secondary">Alle auswählen</button><button id="noneBtn" class="secondary">Keine auswählen</button><button id="resetBtn" class="danger">Alles löschen</button></div>
+ </div>
+ <div id="rulesMenu" class="dropdown-menu hidden"><div class="menu-head"><h2>Turnierregeln</h2><button id="closeRulesMenuBtn" class="secondary">Schließen ×</button></div><textarea id="rulesEditor" class="rules-editor"></textarea><div class="controls"><button id="saveRulesBtn" class="primary">Regeln speichern</button><button id="resetRulesBtn" class="secondary">Standardregeln</button></div></div>
+ <div id="archiveMenu" class="dropdown-menu hidden"><div class="menu-head"><h2>Beendete Turniere</h2><button id="closeArchiveMenuBtn" class="secondary">Schließen ×</button></div><div id="archiveList" class="archive-list"></div></div>
+ <div id="statsMenu" class="dropdown-menu hidden"><div class="menu-head"><h2>Clubstatistik</h2><button id="closeStatsMenuBtn" class="secondary">Schließen ×</button></div><label>Auswertung <select id="statsType"><option value="Alle">Alle Turniere</option><option>Knobelabend</option><option>Knobelmarathon</option><option>Sonstiges</option></select></label><div id="statsSummary"></div><table><tbody id="statsBody"></tbody></table></div>
+</section>
 
-      <div class="dropdown">
-        <button id="archiveBtn" class="secondary" type="button">Turnierhistorie ▾</button>
-        <div id="archiveMenu" class="dropdown-menu right hidden">
-          <div class="menu-head">
-            <h2>Beendete Turniere</h2>
-            <button id="closeArchiveMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
-          </div>
-          <p class="note">Ein beendetes Turnier kann wieder geöffnet und fortgesetzt werden.</p>
-          <div id="archiveList" class="archive-list"></div>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button id="statsBtn" class="secondary" type="button">Statistik ▾</button>
-        <div id="statsMenu" class="dropdown-menu right stats-menu hidden">
-          <div class="menu-head">
-            <h2>Clubstatistik</h2>
-            <button id="closeStatsMenuBtn" class="secondary close-menu" type="button">Schließen ×</button>
-          </div>
-          <div class="stats-filter">
-            <label for="statsType">Auswertung nach Turnierart</label>
-            <select id="statsType">
-              <option value="Alle">Alle Turniere</option>
-              <option value="Knobelabend">Knobelabend</option>
-              <option value="Knobelmarathon">Knobelmarathon</option>
-              <option value="Sonstiges">Sonstiges</option>
-            </select>
-          </div>
-          <div id="statsSummary" class="stats-summary"></div>
-          <div class="stats-table-wrap">
-            <table>
-              <thead><tr><th>Spieler</th><th>Turniere</th><th>Siege</th><th>Ø Niederlagen</th></tr></thead>
-              <tbody id="statsBody"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <button id="installAppBtn" class="secondary hidden" type="button">App installieren</button>
-        <button id="startMainBtn" class="primary" type="button">Turnier starten</button>
-      <button id="undoBtn" class="secondary" type="button">Letzte Runde rückgängig</button>
-      <button id="endBtn" class="danger" type="button">Turnier beenden</button>
-    </div>
-  </section>
-
-  <section class="panel game-panel play-panel">
-      <div class="game-heading">
-        <div><span class="section-kicker">Spieltisch</span><h2 id="roundTitle">Noch kein Turnier gestartet</h2></div>
-        <div id="clockNow" class="clock-now">--:--:--</div>
-      </div>
-      <div id="tournamentClock" class="tournament-clock inactive">
-        <div class="clock-line">
-          <div><span class="clock-label">Turnierzeit</span><strong id="clockWindow">–</strong></div>
-          <div class="clock-remaining"><span class="clock-label">Verbleibend</span><strong id="clockRemaining">–</strong></div>
-        </div>
-        <div class="clock-track"><div id="clockProgress" class="clock-progress"></div></div>
-        <div id="clockMessage" class="clock-message">Noch kein Turnier gestartet.</div>
-      </div>
-      <div id="status" class="status">Öffne die Spielerprofile und wähle mindestens zwei Teilnehmer aus.</div>
-      <div id="playersGrid" class="players-grid"></div>
-      <div class="play-actions"><button id="nextRoundBtn" class="primary big-next" type="button">Nächste Runde →</button></div>
-    </section>
-
-    <aside class="panel ranking-panel">
-      <span class="section-kicker">Live</span>
-      <h2>🏆 Rangliste</h2>
-      <div class="ranking-wrap">
-        <table class="ranking-table">
-          <thead><tr><th>Platz</th><th>Spieler</th><th>Verluste</th></tr></thead>
-          <tbody id="rankingBody"><tr><td colspan="3">Noch kein Turnier gestartet.</td></tr></tbody>
-        </table>
-      </div>
-    </aside>
-
-    <section class="panel history-panel quick-history-panel">
-      <h2>Letzte Runden</h2>
-      <div id="historyList" class="history-list"><div class="empty">Noch keine Runde gespeichert.</div></div>
-    </section>
+<div class="kz-game-grid">
+ <section class="panel kz-table">
+  <div class="kz-round-head"><div><h2 id="roundTitle">Noch kein Turnier gestartet</h2><p>Tippe alle Spieler an, die diese Runde verloren haben.</p></div><div id="clockNow" class="clock-now">--:--:--</div></div>
+  <div id="tournamentClock" class="kz-timebar inactive">
+   <div class="kz-time-labels"><strong id="clockWindow">–</strong><strong id="clockRemaining">–</strong></div>
+   <div class="clock-track kz-time-track"><div id="clockProgress" class="clock-progress kz-time-progress"></div></div>
+   <div id="clockMessage" class="kz-time-message">Noch kein Turnier gestartet.</div>
+  </div>
+  <div id="status" class="status">Öffne die Spielerprofile und wähle mindestens zwei Teilnehmer aus.</div>
+  <div id="playersGrid" class="players-grid"></div>
+  <section class="kz-recent"><h3>Letzte Runden</h3><div id="historyList" class="history-list"><div class="empty">Noch keine Runde gespeichert.</div></div><button id="showFullHistoryBtn" class="kz-history-link">Gesamte Historie anzeigen ›</button></section>
+  <button id="nextRoundBtn" class="hidden">Nächste Runde</button>
+  <button id="installAppBtn" class="hidden">App installieren</button>
+ </section>
+ <aside class="panel kz-ranking"><h2>🏆 Rangliste</h2><table class="ranking-table"><thead><tr><th>Platz</th><th>Spieler</th><th>Niederlagen</th></tr></thead><tbody id="rankingBody"><tr><td colspan="3">Noch kein Turnier gestartet.</td></tr></tbody></table></aside>
+</div>
 </main>
 </div>
 <footer style="max-width:1380px;margin:0 auto;padding:0 24px 18px;color:#f2c45b;display:flex;justify-content:space-between"><strong>Die Knobelzocker – Club Edition</strong><span>Version 1.4.0a</span></footer>
