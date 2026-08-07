@@ -1,8 +1,8 @@
 # Änderungsprotokoll
 
-## 1.4.0a – Neues Fundament / Spieltisch
-- Neuer Spieltisch unterhalb des bestehenden Headers
-- Dynamische rechteckige Spielerfelder
-- Verliererauswahl durch Antippen; Auswahl wird rot
-- Rangliste dauerhaft rechts sichtbar
-- Unterstützung für bis zu 12 Spieler
+## 1.4.0a – Korrigierter freigegebener Header
+- Offizielles Clublogo links, vergrößert
+- Kein zusätzlicher Schriftzug neben dem Logo
+- Infofelder direkt neben dem Logo
+- Versionsangabe rechts
+- Spieltisch und 12-Spieler-Unterstützung unverändert
