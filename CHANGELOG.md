@@ -1,6 +1,6 @@
 # Änderungsprotokoll
 
-## 1.4.1.6
+## 1.4.1.7
 - iPad-Darstellung kompakter aufgebaut.
 - Header D-001 und Menüleiste D-002 in der Höhe reduziert.
 - Logo bleibt in seiner freigegebenen Größe, nutzt aber den verfügbaren Raum effizienter.
