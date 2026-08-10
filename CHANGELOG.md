@@ -1,5 +1,14 @@
 # Änderungsprotokoll
 
+## 1.4.1.6
+- iPad-Darstellung kompakter aufgebaut.
+- Header D-001 und Menüleiste D-002 in der Höhe reduziert.
+- Logo bleibt in seiner freigegebenen Größe, nutzt aber den verfügbaren Raum effizienter.
+- Rangliste auf schmaleren Tablet-Breiten kompakter dargestellt.
+- Auf iPad im Hochformat wechselt das Hauptlayout früher in eine einspaltige Ansicht.
+- Turnierdaten-Dialog auf Tablet-Breiten ruhiger und platzsparender abgestimmt.
+- Keine Funktionsänderung.
+
 ## 1.4.1.5
 - Menüleiste farblich an den Header angepasst.
 - D-002 nutzt jetzt denselben Dunkelgrün-/Gold-Farbraum wie D-001.

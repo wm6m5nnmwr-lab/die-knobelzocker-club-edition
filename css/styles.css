@@ -1645,3 +1645,95 @@ footer{
 .kz-frozen-d002 .kz-menu-time-head span{
   color:#efb92f!important;
 }
+
+/* ============================================================
+   1.4.1.6 – iPad-Optimierung
+   ============================================================ */
+
+/* Kompakter Tablet-/iPad-Landscape-Aufbau */
+@media (min-width: 981px) and (max-width: 1366px){
+  .app{max-width:1320px;padding:10px 12px 8px!important}
+  .kz-frozen-top{grid-template-columns:220px minmax(0,1fr)!important;gap:10px!important;margin-bottom:6px!important}
+  .kz-frozen-logo .ref-logo{width:210px!important;height:156px!important}
+  .kz-frozen-right{grid-template-rows:72px 44px!important;gap:6px!important}
+  .kz-frozen-d001 .ref-info-strip{height:72px!important;min-height:72px!important}
+  .kz-frozen-d001 .ref-info-cell{padding:5px 8px!important;gap:1px!important}
+  .kz-frozen-d001 .ref-label{font-size:9px!important}
+  .kz-frozen-d001 .ref-icon{width:24px!important;height:24px!important}
+  .kz-frozen-d001 .ref-info-cell strong{font-size:14px!important}
+  .kz-frozen-d001 .ref-round-cell strong{font-size:17px!important}
+
+  .kz-frozen-d002{min-height:44px!important;height:44px!important;padding:4px 6px!important;gap:5px!important}
+  .kz-frozen-d002 .kz-menu-left,
+  .kz-frozen-d002 .kz-menu-right{gap:5px!important}
+  .kz-frozen-d002 .kz-menu-btn,
+  .kz-frozen-d002 .kz-action,
+  .kz-frozen-d002 button{min-height:34px!important;height:34px!important;padding:6px 8px!important;font-size:11px!important;border-radius:8px!important}
+  .kz-frozen-d002 .kz-menu-time,
+  .kz-frozen-d002 .kz-menu-right .kz-menu-time{width:182px!important;min-width:170px!important;flex-basis:182px!important;height:34px!important;padding:3px 6px 4px!important}
+  .kz-frozen-d002 .kz-menu-time-head{font-size:8px!important}
+  .kz-frozen-d002 .kz-menu-time-head strong{font-size:8px!important}
+  .kz-frozen-d002 .kz-menu-time-track{height:7px!important;margin-top:3px!important}
+
+  .kz-game-grid{grid-template-columns:minmax(0,1fr) 300px!important;gap:10px!important}
+  .panel{padding:12px!important;border-radius:15px!important}
+  .kz-round-head h2{font-size:20px!important}
+  .kz-round-head p{font-size:11px!important}
+  .clock-now{font-size:16px!important}
+  .status{min-height:28px!important;padding:6px 8px!important;margin-bottom:10px!important}
+  .players-grid{gap:6px!important;margin-top:6px!important}
+  .player-card{min-height:50px!important;padding:6px 8px!important;border-radius:12px!important}
+  .player-card .player-name{font-size:14px!important}
+  .player-card .profile-mark{height:24px!important}
+
+  .ranking-card{min-height:39px!important;padding:6px 8px!important;border-radius:10px!important}
+  .ranking-name{font-size:13px!important}
+  .history-card-row,.history-item{min-height:36px!important}
+  .history-player-card{min-height:23px!important}
+
+  footer{max-width:1320px!important;padding:6px 12px 12px!important;font-size:11px!important}
+}
+
+/* iPad / Tablet Hochformat und schmalere Breiten */
+@media (min-width: 768px) and (max-width: 980px){
+  .app{padding:10px 10px 8px!important}
+  .kz-frozen-top{grid-template-columns:180px minmax(0,1fr)!important;gap:8px!important;margin-bottom:6px!important}
+  .kz-frozen-logo .ref-logo{width:170px!important;height:128px!important}
+  .kz-frozen-right{grid-template-rows:68px auto!important;gap:6px!important}
+  .kz-frozen-d001 .ref-info-strip{height:68px!important;min-height:68px!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  .kz-frozen-d001 .ref-info-cell{padding:4px 6px!important}
+  .kz-frozen-d001 .ref-label{font-size:9px!important}
+  .kz-frozen-d001 .ref-icon{width:22px!important;height:22px!important}
+  .kz-frozen-d001 .ref-info-cell strong{font-size:13px!important}
+  .kz-frozen-d001 .ref-round-cell strong{font-size:16px!important}
+
+  .kz-frozen-d002{min-height:auto!important;height:auto!important;padding:5px!important;flex-wrap:wrap!important;align-items:stretch!important}
+  .kz-frozen-d002 .kz-menu-left,
+  .kz-frozen-d002 .kz-menu-right{width:100%!important;flex-wrap:wrap!important;gap:5px!important}
+  .kz-frozen-d002 .kz-menu-right{justify-content:flex-start!important}
+  .kz-frozen-d002 .kz-menu-btn,
+  .kz-frozen-d002 .kz-action,
+  .kz-frozen-d002 button{min-height:34px!important;height:34px!important;padding:6px 8px!important;font-size:11px!important}
+  .kz-frozen-d002 .kz-menu-time,
+  .kz-frozen-d002 .kz-menu-right .kz-menu-time{order:2!important;width:210px!important;min-width:180px!important;flex:1 1 210px!important;height:34px!important;padding:3px 6px 4px!important}
+
+  .kz-game-grid{grid-template-columns:1fr!important;gap:10px!important}
+  .kz-game-grid > .kz-table,
+  .kz-game-grid > .kz-ranking{min-height:0!important}
+  .kz-ranking{order:2!important}
+  .panel{padding:12px!important}
+  .players-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+  .player-card{min-height:54px!important}
+  .ranking-list{display:grid!important;gap:6px!important}
+
+  #profileMenu{width:min(920px,calc(100vw - 24px))!important;max-height:calc(100vh - 24px)!important;padding:15px 16px 16px!important}
+  #profileMenu .menu-head{margin:-15px -16px 14px!important;padding:13px 16px!important;top:-15px!important}
+  #profileMenu .menu-head h2{font-size:28px!important}
+  #profileMenu .profile-form{grid-template-columns:1fr 190px!important;gap:14px!important}
+  #profileMenu .profile-form label{grid-template-columns:180px minmax(0,1fr)!important;gap:12px!important}
+  #profileMenu #profileGrid.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px 12px!important}
+  #profileMenu .tournament-settings{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;padding:14px!important}
+  #profileMenu > .controls{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+
+  footer{padding:6px 10px 12px!important;font-size:11px!important}
+}
