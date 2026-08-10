@@ -548,3 +548,1007 @@ body{
 @media(max-width:820px){.kz-game-grid{grid-template-columns:1fr}.kz-ranking{position:static}}
 @media(max-width:620px){.kz-menu{display:block}.kz-menu-right{margin-top:6px}.players-grid{grid-template-columns:repeat(2,1fr)!important}}
 @media(min-width:900px) and (max-height:820px){.kz-menu{padding:5px 7px}.kz-menu-btn,.kz-action{padding:6px 8px}.kz-game-grid{margin-top:6px}.kz-timebar{margin:6px 0;padding:6px 9px}.players-grid{gap:6px;margin-top:6px}.player-card{min-height:52px;padding:7px 9px}.player-card.selected{padding:5px 7px}.kz-recent{margin-top:6px;padding-top:5px}}
+
+
+/* 1.4.0a-3.4 – stabile D-004 Darstellung */
+.players-grid{
+  display:grid;
+  gap:9px;
+  margin-top:9px;
+}
+.players-1,.players-2,.players-3,.players-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.players-5,.players-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.players-7,.players-8,.players-9,.players-10,.players-11,.players-12{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+.player-card{
+  min-height:66px!important;
+  border:0!important;
+  border-radius:16px!important;
+  padding:10px 12px!important;
+  display:grid!important;
+  grid-template-columns:10px minmax(0,1fr) auto!important;
+  gap:9px!important;
+  align-items:center!important;
+  background:var(--profile-bg,#f5f5f0)!important;
+  color:#173d2c!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.10)!important;
+}
+.player-card.selected{
+  border:2px solid #b23e3e!important;
+  background:#f7e3e1!important;
+  padding:8px 10px!important;
+}
+.profile-mark{
+  width:9px;
+  height:34px;
+  border-radius:999px;
+  display:block
+}
+.player-name{
+  font-size:17px!important;
+  font-weight:900!important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.loss-view,.dice-losses{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  white-space:nowrap
+}
+.zero-loss{
+  font-size:20px;
+  color:#617068
+}
+.mini-die{
+  width:18px;
+  height:18px;
+  border-radius:4px;
+  border:1.5px solid #c99d29;
+  background:#0b5137;
+  display:inline-block;
+  position:relative;
+  box-shadow:0 1px 2px rgba(0,0,0,.14)
+}
+.mini-die i{
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#e9ba43
+}
+.mini-die i:nth-child(1){left:3px;top:3px}
+.mini-die i:nth-child(2){left:7px;top:7px}
+.mini-die i:nth-child(3){right:3px;bottom:3px}
+.loss-times{
+  font-size:16px;
+  color:#244936
+}
+.ranking-dot{
+  display:inline-block;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  margin-right:7px;
+  vertical-align:middle
+}
+.history-player{
+  display:inline-flex;
+  align-items:center;
+  margin-right:12px;
+  font-weight:800
+}
+.history-player-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  margin-right:5px
+}
+
+@media(max-width:1050px){
+  .players-9,.players-10,.players-11,.players-12{
+    grid-template-columns:repeat(3,minmax(0,1fr))
+  }
+}
+@media(max-width:620px){
+  .players-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important
+  }
+}
+
+
+/* ============================================================
+   1.4.0a-3.4.2 – freigegebene optische Korrekturen
+   ============================================================ */
+
+/* Versionsangabe bleibt im D-002-Aufbau, nur kompakter gesetzt. */
+.ref-version-number{
+  font-size:15px!important;
+  white-space:nowrap;
+}
+
+/* D-003: kleiner Zeitbalken direkt neben Statistik */
+.kz-menu-left{
+  align-items:center;
+}
+.kz-menu-time{
+  width:205px;
+  min-width:180px;
+  padding:5px 8px 6px;
+  border:1.5px solid #d5a72d;
+  border-radius:9px;
+  background:#063c2a;
+  color:#efbd3b;
+  box-sizing:border-box;
+}
+.kz-menu-time.inactive{
+  opacity:.72;
+}
+.kz-menu-time-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:7px;
+  min-width:0;
+  font-size:9px;
+  line-height:1.1;
+  color:#efbd3b;
+}
+.kz-menu-time-head span,
+.kz-menu-time-head strong{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.kz-menu-time-head strong{
+  font-size:10px;
+  text-align:right;
+}
+.kz-menu-time-track{
+  height:5px;
+  margin-top:5px;
+  overflow:hidden;
+  border:1px solid rgba(239,189,59,.72);
+  border-radius:999px;
+  background:#082f23;
+}
+.kz-menu-time .clock-progress{
+  height:100%;
+  width:0;
+  border-radius:inherit;
+  background:#4d9868;
+  transition:width .35s ease,background .25s ease;
+}
+.kz-menu-time .clock-progress.warning{
+  background:#d5a72d;
+}
+.kz-menu-time .clock-progress.urgent,
+.kz-menu-time .clock-progress.over{
+  background:#b74b48;
+}
+.kz-menu-time .clock-message{
+  display:none!important;
+}
+.kz-visually-hidden{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+/* Stilisierte Mini-Würfel im Charakter des Clublogos:
+   cremefarbene Fläche, dunkle Augen, gold/grüne Tiefe */
+.mini-die{
+  width:19px!important;
+  height:19px!important;
+  border:1.5px solid #c39a3a!important;
+  border-radius:5px!important;
+  background:linear-gradient(145deg,#fffdf5 0%,#eee3cd 72%,#dfcfad 100%)!important;
+  box-shadow:
+    inset -2px -2px 2px rgba(91,69,35,.13),
+    inset 1px 1px 1px rgba(255,255,255,.85),
+    2px 2px 0 rgba(8,74,49,.34),
+    0 2px 4px rgba(0,0,0,.13)!important;
+}
+.mini-die i{
+  width:3.5px!important;
+  height:3.5px!important;
+  background:#17251f!important;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.18)!important;
+}
+.mini-die i:nth-child(1){
+  left:3px!important;
+  top:3px!important;
+}
+.mini-die i:nth-child(2){
+  left:7px!important;
+  top:7px!important;
+}
+.mini-die i:nth-child(3){
+  right:3px!important;
+  bottom:3px!important;
+}
+
+/* Rangliste im gleichen Kartenstil wie die Spielerfelder */
+.ranking-list{
+  display:grid;
+  gap:7px;
+}
+.ranking-card{
+  min-height:50px;
+  display:grid;
+  grid-template-columns:32px 7px minmax(0,1fr) auto;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border:0;
+  border-radius:14px;
+  background:var(--profile-bg,#f5f5f0);
+  color:#173d2c;
+  box-shadow:0 3px 11px rgba(0,0,0,.09);
+}
+.ranking-place{
+  font-size:18px;
+  font-weight:900;
+  text-align:center;
+}
+.ranking-profile-mark{
+  width:7px!important;
+  height:29px!important;
+}
+.ranking-name{
+  font-size:16px!important;
+}
+.ranking-losses .mini-die{
+  width:16px!important;
+  height:16px!important;
+  border-radius:4px!important;
+}
+.ranking-losses .mini-die i{
+  width:3px!important;
+  height:3px!important;
+}
+.ranking-losses .mini-die i:nth-child(1){
+  left:2px!important;
+  top:2px!important;
+}
+.ranking-losses .mini-die i:nth-child(2){
+  left:6px!important;
+  top:6px!important;
+}
+.ranking-losses .mini-die i:nth-child(3){
+  right:2px!important;
+  bottom:2px!important;
+}
+
+/* Historie: Profilnamen als kompakte Varianten der Spielerkarten */
+.history-card-row{
+  display:grid!important;
+  grid-template-columns:78px minmax(0,1fr)!important;
+  align-items:center;
+  gap:9px;
+  padding:6px 0!important;
+}
+.history-round-label{
+  color:#173d2c;
+  font-size:13px;
+}
+.history-player-list{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.history-player-card{
+  display:inline-grid;
+  grid-template-columns:6px auto;
+  align-items:center;
+  gap:6px;
+  min-height:30px;
+  padding:4px 8px 4px 6px;
+  border-radius:10px;
+  background:var(--profile-bg,#f5f5f0);
+  color:#173d2c;
+  box-shadow:0 2px 7px rgba(0,0,0,.07);
+}
+.history-profile-mark{
+  width:6px;
+  height:21px;
+  border-radius:999px;
+}
+.history-player-name{
+  font-size:13px!important;
+  font-weight:900!important;
+}
+
+@media(max-width:1180px){
+  .kz-menu-time{
+    width:175px;
+    min-width:160px;
+  }
+  .kz-menu-time-head{
+    font-size:8px;
+  }
+  .kz-menu-time-head strong{
+    font-size:9px;
+  }
+}
+@media(max-width:900px){
+  .kz-menu-time{
+    width:190px;
+  }
+}
+
+
+/* ============================================================
+   VERSION 1.4.1 – EINGEFRORENER REFERENZSTAND
+   ============================================================ */
+
+/* D-001 + D-002: Logo über gemeinsame Gesamthöhe */
+.kz-frozen-top{
+  display:grid;
+  grid-template-columns:205px minmax(0,1fr);
+  gap:12px;
+  align-items:stretch;
+  margin-bottom:7px;
+}
+.kz-frozen-logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+}
+.kz-frozen-logo .ref-logo-box{
+  width:100%;
+  height:100%;
+  padding:0!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.kz-frozen-logo .ref-logo{
+  width:195px!important;
+  height:145px!important;
+  max-width:100%!important;
+  object-fit:contain;
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.34));
+}
+.kz-frozen-right{
+  min-width:0;
+  display:grid;
+  grid-template-rows:82px 50px;
+  gap:7px;
+}
+
+/* D-001 – deutlich niedriger, Version vollständig entfernt */
+.kz-frozen-d001{
+  min-width:0;
+}
+.kz-frozen-d001 .ref-info-strip{
+  height:82px!important;
+  min-height:82px!important;
+  margin:0!important;
+  grid-template-columns:1.08fr 1fr 1fr 1.08fr .78fr!important;
+  border:1.5px solid rgba(244,186,42,.72)!important;
+  border-radius:14px!important;
+  background:rgba(0,37,24,.30)!important;
+}
+.kz-frozen-d001 .ref-info-cell{
+  min-height:0!important;
+  gap:2px!important;
+  padding:6px 9px!important;
+}
+.kz-frozen-d001 .ref-label{
+  font-size:10px!important;
+  line-height:1!important;
+}
+.kz-frozen-d001 .ref-icon{
+  width:28px!important;
+  height:28px!important;
+}
+.kz-frozen-d001 .ref-info-cell strong{
+  font-size:16px!important;
+  line-height:1!important;
+}
+.kz-frozen-d001 .ref-round-cell strong{
+  font-size:19px!important;
+}
+
+/* D-002 – schmaler/niedriger */
+.kz-frozen-d002{
+  min-height:50px!important;
+  height:50px!important;
+  padding:5px 7px!important;
+  margin:0!important;
+  border-radius:11px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:6px!important;
+  overflow:visible;
+}
+.kz-frozen-d002 .kz-menu-left,
+.kz-frozen-d002 .kz-menu-right{
+  display:flex!important;
+  align-items:center!important;
+  flex-wrap:nowrap!important;
+  gap:6px!important;
+}
+.kz-frozen-d002 .kz-menu-btn,
+.kz-frozen-d002 .kz-action{
+  min-height:38px!important;
+  height:38px!important;
+  padding:7px 10px!important;
+  border-radius:8px!important;
+  font-size:12px!important;
+  white-space:nowrap!important;
+}
+
+/* Farbiger Zeitstrahl direkt neben Statistik */
+.kz-frozen-d002 .kz-menu-time{
+  width:230px!important;
+  min-width:210px!important;
+  height:38px!important;
+  padding:4px 8px 5px!important;
+  border:1.5px solid #d5a72d!important;
+  border-radius:8px!important;
+  background:#063c2a!important;
+  box-sizing:border-box!important;
+}
+.kz-frozen-d002 .kz-menu-time-head{
+  font-size:9px!important;
+  line-height:1!important;
+}
+.kz-frozen-d002 .kz-menu-time-head strong{
+  font-size:9px!important;
+}
+.kz-frozen-d002 .kz-menu-time-track{
+  position:relative!important;
+  height:8px!important;
+  margin-top:4px!important;
+  border:0!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  background:linear-gradient(90deg,
+    #28a745 0%,
+    #7bc943 28%,
+    #efd32b 52%,
+    #f49a23 74%,
+    #df2e27 100%)!important;
+  box-shadow:inset 0 0 0 1px rgba(244,186,42,.35)!important;
+}
+.kz-frozen-d002 .kz-menu-time .clock-progress{
+  height:100%!important;
+  background:rgba(0,31,22,.18)!important;
+  border-right:2px solid rgba(255,255,255,.95)!important;
+  border-radius:999px 0 0 999px!important;
+  box-shadow:none!important;
+}
+.kz-frozen-d002 .kz-menu-time .clock-progress.warning,
+.kz-frozen-d002 .kz-menu-time .clock-progress.urgent,
+.kz-frozen-d002 .kz-menu-time .clock-progress.over{
+  background:rgba(0,31,22,.18)!important;
+}
+
+/* Workspace rückt direkt unter D-002 */
+.kz-workspace{
+  margin-top:0!important;
+}
+
+/* Spieltisch + Rangliste immer gleiche Höhe */
+.kz-game-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 350px!important;
+  gap:12px!important;
+  margin-top:0!important;
+  align-items:stretch!important;
+}
+.kz-game-grid > .kz-table,
+.kz-game-grid > .kz-ranking{
+  height:auto!important;
+  min-height:100%!important;
+  box-sizing:border-box!important;
+}
+.kz-ranking{
+  position:static!important;
+  top:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.kz-ranking .ranking-list{
+  flex:1 1 auto!important;
+  align-content:start!important;
+}
+
+/* Kompakter Spieltisch: drei letzte Runden passen in dieselbe Panelhöhe */
+.kz-table{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.kz-round-head h2{
+  font-size:23px!important;
+  line-height:1.05!important;
+}
+.kz-round-head p{
+  font-size:12px!important;
+}
+.clock-now{
+  font-size:18px!important;
+}
+.status{
+  min-height:30px!important;
+  padding:5px 9px!important;
+}
+.players-grid{
+  gap:7px!important;
+  margin-top:7px!important;
+}
+.player-card{
+  min-height:54px!important;
+  padding:7px 9px!important;
+  border-radius:13px!important;
+}
+.player-card.selected{
+  padding:5px 7px!important;
+}
+.player-card .player-name{
+  font-size:15px!important;
+}
+.player-card .profile-mark{
+  height:27px!important;
+}
+.kz-recent{
+  margin-top:7px!important;
+  padding-top:6px!important;
+}
+.kz-recent h3{
+  margin-bottom:4px!important;
+}
+.kz-recent .history-list{
+  max-height:none!important;
+  overflow:visible!important;
+}
+.history-card-row,
+.history-item{
+  min-height:39px!important;
+  padding:3px 0!important;
+}
+.history-player-card{
+  min-height:25px!important;
+  padding:2px 6px 2px 5px!important;
+}
+.kz-history-link{
+  padding:3px 0!important;
+}
+
+/* Rangliste bleibt kompakt und nutzt dieselbe Profilsprache */
+.ranking-list{
+  gap:5px!important;
+}
+.ranking-card{
+  min-height:43px!important;
+  padding:6px 9px!important;
+  border-radius:11px!important;
+}
+.ranking-name{
+  font-size:14px!important;
+}
+
+/* Spielerprofile: schmalere Karten */
+#profileGrid.profile-grid{
+  gap:9px!important;
+}
+#profileGrid .profile-card{
+  min-height:68px!important;
+  height:68px!important;
+  padding:7px 11px!important;
+  border-radius:14px!important;
+}
+#profileGrid .profile-card > span{
+  font-size:18px!important;
+  font-weight:850!important;
+}
+#profileGrid .delete-profile{
+  width:36px!important;
+  height:36px!important;
+  min-width:36px!important;
+  min-height:36px!important;
+}
+
+/* Spielerprofile: Eingabefelder höher */
+#profileMenu .profile-form input,
+#profileMenu .tournament-settings input,
+#profileMenu .tournament-settings select{
+  min-height:54px!important;
+  height:54px!important;
+  padding:10px 14px!important;
+  font-size:16px!important;
+  border-radius:10px!important;
+  box-sizing:border-box!important;
+}
+
+/* Footer = einzige Versionsanzeige */
+footer{
+  padding-top:8px!important;
+  padding-bottom:9px!important;
+  font-size:12px!important;
+}
+
+/* Bildschirmhöhe effizient nutzen */
+@media(min-width:1000px) and (max-height:900px){
+  .kz-frozen-top{
+    grid-template-columns:190px minmax(0,1fr);
+    gap:10px;
+  }
+  .kz-frozen-logo .ref-logo{
+    width:178px!important;
+    height:134px!important;
+  }
+  .kz-frozen-right{
+    grid-template-rows:76px 46px;
+    gap:5px;
+  }
+  .kz-frozen-d001 .ref-info-strip{
+    height:76px!important;
+    min-height:76px!important;
+  }
+  .kz-frozen-d002{
+    height:46px!important;
+    min-height:46px!important;
+    padding:4px 6px!important;
+  }
+  .kz-frozen-d002 .kz-menu-btn,
+  .kz-frozen-d002 .kz-action{
+    height:36px!important;
+    min-height:36px!important;
+    padding:6px 8px!important;
+    font-size:11px!important;
+  }
+  .kz-frozen-d002 .kz-menu-time{
+    height:36px!important;
+    min-width:190px!important;
+    width:205px!important;
+  }
+  .kz-game-grid{
+    gap:9px!important;
+  }
+  .panel{
+    padding:10px!important;
+  }
+}
+
+/* Tablets / kleinere Breite */
+@media(max-width:1180px){
+  .kz-frozen-top{
+    grid-template-columns:180px minmax(0,1fr);
+  }
+  .kz-frozen-logo .ref-logo{
+    width:168px!important;
+  }
+  .kz-frozen-d002 .kz-menu-time{
+    width:195px!important;
+    min-width:175px!important;
+  }
+  .kz-game-grid{
+    grid-template-columns:minmax(0,1fr) 310px!important;
+  }
+}
+@media(max-width:900px){
+  .kz-frozen-top{
+    grid-template-columns:1fr;
+  }
+  .kz-frozen-logo{
+    display:none;
+  }
+  .kz-frozen-right{
+    grid-template-rows:auto auto;
+  }
+  .kz-frozen-d001 .ref-info-strip{
+    height:auto!important;
+    min-height:76px!important;
+  }
+  .kz-frozen-d002{
+    height:auto!important;
+    flex-wrap:wrap!important;
+  }
+  .kz-frozen-d002 .kz-menu-left,
+  .kz-frozen-d002 .kz-menu-right{
+    flex-wrap:wrap!important;
+  }
+  .kz-game-grid{
+    grid-template-columns:1fr!important;
+  }
+  .kz-game-grid > .kz-table,
+  .kz-game-grid > .kz-ranking{
+    min-height:0!important;
+  }
+}
+
+
+/* ============================================================
+   1.4.1.1 – freigegebene Korrekturen
+   ============================================================ */
+
+/* Header-Schrift konsequent gold wie im Gesamtlayout */
+.kz-frozen-d001,
+.kz-frozen-d001 *{
+  color:#efb92f!important;
+}
+.kz-frozen-d001 .ref-label,
+.kz-frozen-d001 .ref-info-cell strong,
+.kz-frozen-d001 .ref-info-cell span{
+  color:#efb92f!important;
+}
+
+/* Zeitskala jetzt direkt nach "Nächste Runde" */
+.kz-frozen-d002 .kz-menu-right{
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  flex-wrap:nowrap!important;
+}
+.kz-frozen-d002 .kz-menu-right .kz-menu-time{
+  flex:0 0 210px!important;
+  width:210px!important;
+  min-width:190px!important;
+}
+
+@media(max-width:1250px){
+  .kz-frozen-d002 .kz-menu-right .kz-menu-time{
+    flex-basis:185px!important;
+    width:185px!important;
+    min-width:170px!important;
+  }
+}
+
+
+/* ============================================================
+   1.4.1.3 – eingefrorene Ansicht „Turnierdaten“
+   ============================================================ */
+
+/* Breiter, ruhiger Dialog statt schmalem Dropdown */
+#profileMenu{
+  position:fixed!important;
+  left:50%!important;
+  top:16px!important;
+  transform:translateX(-50%)!important;
+  width:min(1420px,calc(100vw - 32px))!important;
+  max-width:calc(100vw - 32px)!important;
+  max-height:calc(100vh - 32px)!important;
+  padding:18px 20px 20px!important;
+  overflow:auto!important;
+  border-radius:16px!important;
+  box-sizing:border-box!important;
+}
+#profileMenu .menu-head{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:20px!important;
+  margin:-18px -20px 18px!important;
+  padding:15px 20px!important;
+  border-bottom:1px solid #d8e0db!important;
+  background:#fff!important;
+  position:sticky!important;
+  top:-18px!important;
+  z-index:3!important;
+}
+#profileMenu .menu-head h2{
+  margin:0!important;
+  font-size:32px!important;
+  line-height:1.1!important;
+  color:#132e22!important;
+}
+#profileMenu #closeProfileMenuBtn{
+  min-height:48px!important;
+  padding:9px 18px!important;
+  border-radius:12px!important;
+  font-size:17px!important;
+  font-weight:850!important;
+}
+
+/* Neues Profil: Beschriftung + großes Feld + Button sauber in einer Reihe */
+#profileMenu .profile-form{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 230px!important;
+  align-items:end!important;
+  gap:22px!important;
+  margin:0 0 16px!important;
+}
+#profileMenu .profile-form label{
+  display:grid!important;
+  grid-template-columns:235px minmax(280px,610px)!important;
+  align-items:center!important;
+  gap:18px!important;
+  min-width:0!important;
+}
+#profileMenu .profile-form label > span{
+  font-size:18px!important;
+  white-space:nowrap!important;
+  color:#172b22!important;
+}
+#profileMenu .profile-form input{
+  width:100%!important;
+  min-width:0!important;
+  min-height:58px!important;
+  height:58px!important;
+  padding:12px 16px!important;
+  font-size:18px!important;
+  border:1px solid #bdc9c1!important;
+  border-radius:12px!important;
+  box-sizing:border-box!important;
+}
+#profileMenu #addProfileBtn{
+  min-height:58px!important;
+  height:58px!important;
+  padding:10px 20px!important;
+  border-radius:12px!important;
+  font-size:18px!important;
+  font-weight:900!important;
+}
+#profileMenu #formMessage{
+  min-height:0!important;
+  margin:0 0 4px!important;
+}
+
+/* Vier feste, gleichmäßige Spalten für Profile */
+#profileMenu #profileGrid.profile-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:12px 16px!important;
+  margin:0 0 18px!important;
+}
+#profileMenu #profileGrid .profile-card{
+  min-height:76px!important;
+  height:76px!important;
+  padding:8px 14px!important;
+  border-width:0!important;
+  border-radius:15px!important;
+  font-size:22px!important;
+  font-weight:900!important;
+  box-sizing:border-box!important;
+  box-shadow:0 6px 14px rgba(0,0,0,.11)!important;
+}
+#profileMenu #profileGrid .profile-card > span{
+  max-width:calc(100% - 82px)!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+#profileMenu #profileGrid .profile-card.active::after{
+  right:10px!important;
+  top:10px!important;
+  padding:3px 8px!important;
+  font-size:12px!important;
+}
+#profileMenu #profileGrid .delete-profile{
+  left:12px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
+  min-height:42px!important;
+  font-size:22px!important;
+  border-radius:50%!important;
+}
+
+/* Turnierdaten als klar abgegrenzte gemeinsame Zeile */
+#profileMenu .tournament-settings{
+  display:grid!important;
+  grid-template-columns:1.15fr 1fr .82fr 1.45fr!important;
+  gap:18px!important;
+  align-items:end!important;
+  margin:4px 0 18px!important;
+  padding:16px!important;
+  border:1px solid #d2dbd5!important;
+  border-radius:14px!important;
+  background:#fff!important;
+}
+#profileMenu .tournament-settings label{
+  display:grid!important;
+  grid-template-rows:auto 58px!important;
+  gap:7px!important;
+  min-width:0!important;
+}
+#profileMenu .tournament-settings label > span{
+  font-size:14px!important;
+  font-weight:800!important;
+  line-height:1.2!important;
+  color:#172b22!important;
+}
+#profileMenu .tournament-settings input,
+#profileMenu .tournament-settings select{
+  width:100%!important;
+  min-width:0!important;
+  min-height:58px!important;
+  height:58px!important;
+  padding:10px 14px!important;
+  font-size:18px!important;
+  border:1px solid #bdc9c1!important;
+  border-radius:11px!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+}
+#profileMenu #customTournamentRow:not(.hidden){
+  grid-column:1/-1!important;
+  grid-template-columns:220px minmax(0,1fr)!important;
+  grid-template-rows:58px!important;
+  align-items:center!important;
+}
+
+/* Untere Aktionen: vier ruhige, gleichmäßige Felder */
+#profileMenu > .controls{
+  display:grid!important;
+  grid-template-columns:1.2fr 1fr 1fr 1fr!important;
+  gap:18px!important;
+  margin:0!important;
+}
+#profileMenu > .controls button{
+  width:100%!important;
+  min-height:58px!important;
+  height:58px!important;
+  padding:10px 16px!important;
+  border-radius:12px!important;
+  font-size:18px!important;
+  font-weight:900!important;
+  white-space:nowrap!important;
+}
+
+/* Kleine Displays: sauber umbrechen statt überlaufen */
+@media(max-width:1050px){
+  #profileMenu .profile-form{
+    grid-template-columns:1fr 200px!important;
+  }
+  #profileMenu .profile-form label{
+    grid-template-columns:190px minmax(220px,1fr)!important;
+  }
+  #profileMenu #profileGrid.profile-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  #profileMenu .tournament-settings{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:720px){
+  #profileMenu{
+    left:12px!important;
+    right:12px!important;
+    top:12px!important;
+    transform:none!important;
+    width:auto!important;
+    max-width:none!important;
+    max-height:calc(100vh - 24px)!important;
+    padding:14px!important;
+  }
+  #profileMenu .menu-head{
+    margin:-14px -14px 14px!important;
+    padding:12px 14px!important;
+    top:-14px!important;
+  }
+  #profileMenu .menu-head h2{font-size:25px!important}
+  #profileMenu .profile-form,
+  #profileMenu .profile-form label,
+  #profileMenu .tournament-settings,
+  #profileMenu > .controls{
+    grid-template-columns:1fr!important;
+  }
+  #profileMenu .profile-form label{
+    grid-template-rows:auto 54px!important;
+    gap:6px!important;
+  }
+  #profileMenu #profileGrid.profile-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  #profileMenu #customTournamentRow:not(.hidden){
+    grid-column:auto!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto 54px!important;
+  }
+}

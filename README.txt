@@ -49,3 +49,9 @@ VERSION 1.3.1 – PATCH
 - Kompaktere Turnieruhr und Spielerkacheln
 - Verbesserte Darstellung auf Mac, PC und iPad
 - Neuer PWA-Cache
+
+
+VERSION 1.4.0a-3.4.2
+- Mini-Würfel im Clublogo-Stil
+- kompakter Zeitbalken in der Menüleiste
+- Rangliste und Historie im Stil der Spielerkarten

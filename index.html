@@ -16,12 +16,15 @@
 </head>
 <body>
 <div class="app">
-<header class="ref-header">
-  <div class="ref-logo-box">
+<section class="kz-frozen-top" aria-label="Turnierkopf">
+  <div class="kz-frozen-logo">
+    <div class="ref-logo-box">
     <img class="ref-logo" src="assets/club-logo.png" alt="Logo der Knobelzocker">
   </div>
-
-  <div class="ref-info-strip" aria-label="Aktuelle Turnierdaten">
+  </div>
+  <div class="kz-frozen-right">
+    <div class="kz-frozen-d001">
+      <div class="ref-info-strip" aria-label="Aktuelle Turnierdaten">
     <div class="ref-info-cell">
       <span class="ref-label">Turnier</span>
       <span class="ref-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v3c0 3-1.7 5.4-4 6.5C9.7 12.4 8 10 8 7V4Zm-3 1h3v2H6c.1 2 1.1 3.3 3 3.8l.8 1.8C6.1 12.1 4 10 4 6V5h1Zm11 0h4v1c0 4-2.1 6.1-5.8 6.6l.8-1.8c1.9-.5 2.9-1.8 3-3.8h-2V5ZM10 14h4v3h3v2H7v-2h3v-3Z"/></svg></span>
@@ -52,36 +55,42 @@
       <strong id="headerRound">–</strong>
     </div>
   </div>
-
-  <div class="ref-version-box">
-    <strong>1.4.0a</strong>
-    <span>Club Edition</span>
-    <span class="ref-info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18Zm0 2a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm-1 6h2v6h-2v-6Zm0-4h2v2h-2V7Z"/></svg></span>
+    </div>
+    <section class="panel kz-menu kz-frozen-d002">
+      <div class="kz-menu-left">
+  <button id="profileMenuBtn" class="kz-menu-btn">Turnierdaten ▾</button>
+  <button id="rulesBtn" class="kz-menu-btn">Turnierregeln ▾</button>
+  <button id="archiveBtn" class="kz-menu-btn">Turnierhistorie ▾</button>
+  <button id="statsBtn" class="kz-menu-btn">Statistik ▾</button>
+  
+ </div>
+ <div class="kz-menu-right">
+  <button id="startMainBtn" class="kz-action kz-next">Nächste Runde</button>
+    <div id="tournamentClock" class="kz-menu-time inactive" aria-label="Turnierzeit">
+   <div class="kz-menu-time-head">
+    <span id="clockWindow">–</span>
+    <strong id="clockRemaining">–</strong>
+   </div>
+   <div class="kz-menu-time-track"><div id="clockProgress" class="clock-progress"></div></div>
+   <span id="clockMessage" class="kz-visually-hidden">Noch kein Turnier gestartet.</span>
   </div>
-</header>
+  <button id="undoBtn" class="kz-action kz-undo">Letzte Runde rückgängig</button>
+  <button id="endBtn" class="kz-action kz-end">Turnier beenden</button>
+ </div>
+    </section>
+  </div>
+</section>
 
 <div id="installHint" class="install-hint hidden" role="status">
     <div><strong>Als App installieren</strong><span id="installHintText">In Safari über „Teilen“ → „Zum Home-Bildschirm“.</span></div>
     <button id="closeInstallHintBtn" class="secondary" type="button">Schließen</button>
   </div>
   <main class="kz-workspace">
-<section class="panel kz-menu">
- <div class="kz-menu-left">
-  <button id="profileMenuBtn" class="kz-menu-btn">Spielerprofile ▾</button>
-  <button id="rulesBtn" class="kz-menu-btn">Turnierregeln ▾</button>
-  <button id="archiveBtn" class="kz-menu-btn">Turnierhistorie ▾</button>
-  <button id="statsBtn" class="kz-menu-btn">Statistik ▾</button>
- </div>
- <div class="kz-menu-right">
-  <button id="startMainBtn" class="kz-action kz-next">Nächste Runde</button>
-  <button id="undoBtn" class="kz-action kz-undo">Letzte Runde rückgängig</button>
-  <button id="endBtn" class="kz-action kz-end">Turnier beenden</button>
- </div>
-</section>
+
 
 <section class="kz-hidden-menus">
  <div id="profileMenu" class="dropdown-menu hidden">
-  <div class="menu-head"><h2>Spielerprofile</h2><button id="closeProfileMenuBtn" class="secondary">Schließen ×</button></div>
+  <div class="menu-head"><h2>Turnierdaten</h2><button id="closeProfileMenuBtn" class="secondary">Schließen ×</button></div>
   <form id="profileForm" class="profile-form"><label><span>Neues Spielerprofil</span><input id="newName" maxlength="24" autocomplete="off" placeholder="Spielername"></label><button id="addProfileBtn" class="primary" type="submit">Profil anlegen</button></form>
   <div id="formMessage" class="message"></div><div id="profileGrid" class="profile-grid"></div>
   <div class="tournament-settings">
@@ -101,22 +110,17 @@
 <div class="kz-game-grid">
  <section class="panel kz-table">
   <div class="kz-round-head"><div><h2 id="roundTitle">Noch kein Turnier gestartet</h2><p>Tippe alle Spieler an, die diese Runde verloren haben.</p></div><div id="clockNow" class="clock-now">--:--:--</div></div>
-  <div id="tournamentClock" class="kz-timebar inactive">
-   <div class="kz-time-labels"><strong id="clockWindow">–</strong><strong id="clockRemaining">–</strong></div>
-   <div class="clock-track kz-time-track"><div id="clockProgress" class="clock-progress kz-time-progress"></div></div>
-   <div id="clockMessage" class="kz-time-message">Noch kein Turnier gestartet.</div>
-  </div>
   <div id="status" class="status">Öffne die Spielerprofile und wähle mindestens zwei Teilnehmer aus.</div>
   <div id="playersGrid" class="players-grid"></div>
   <section class="kz-recent"><h3>Letzte Runden</h3><div id="historyList" class="history-list"><div class="empty">Noch keine Runde gespeichert.</div></div><button id="showFullHistoryBtn" class="kz-history-link">Gesamte Historie anzeigen ›</button></section>
   <button id="nextRoundBtn" class="hidden">Nächste Runde</button>
   <button id="installAppBtn" class="hidden">App installieren</button>
  </section>
- <aside class="panel kz-ranking"><h2>🏆 Rangliste</h2><table class="ranking-table"><thead><tr><th>Platz</th><th>Spieler</th><th>Niederlagen</th></tr></thead><tbody id="rankingBody"><tr><td colspan="3">Noch kein Turnier gestartet.</td></tr></tbody></table></aside>
+ <aside class="panel kz-ranking"><h2>🏆 Rangliste</h2><div id="rankingBody" class="ranking-list"><div class="empty">Noch kein Turnier gestartet.</div></div></aside>
 </div>
 </main>
 </div>
-<footer style="max-width:1380px;margin:0 auto;padding:0 24px 18px;color:#f2c45b;display:flex;justify-content:space-between"><strong>Die Knobelzocker – Club Edition</strong><span>Version 1.4.0a</span></footer>
+<footer style="max-width:1380px;margin:0 auto;padding:0 24px 18px;color:#f2c45b;display:flex;justify-content:space-between"><strong>Die Knobelzocker – Club Edition</strong><span>Version 1.4.1.3</span></footer>
 
 <script src="js/app.js"></script>
 </body>
