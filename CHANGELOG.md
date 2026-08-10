@@ -1,5 +1,15 @@
 # Änderungsprotokoll
 
+## 1.4.1.5
+- Menüleiste farblich an den Header angepasst.
+- D-002 nutzt jetzt denselben Dunkelgrün-/Gold-Farbraum wie D-001.
+- Keine Funktionsänderung.
+
+## 1.4.1.4
+- Logo im Header mit Faktor 1,3 vergrößert.
+- Linke Logo-Spalte proportional angepasst.
+- Restliches Layout und Spiellogik unverändert.
+
 ## 1.4.1.3
 - Dialogüberschrift auf „Turnierdaten“ geändert.
 - Turnierdaten-Ansicht aufgeräumt und als breiten, zentrierten Dialog umgesetzt.
