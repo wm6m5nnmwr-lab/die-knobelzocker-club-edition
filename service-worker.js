@@ -1,4 +1,4 @@
-const CACHE_NAME="knobelzocker-1.4.1.7";
+const CACHE_NAME="knobelzocker-1.4.1.8";
 const APP_FILES=[
   "./","./index.html","./css/styles.css","./js/app.js","./manifest.webmanifest",
   "./assets/dice.png","./assets/club-logo.png","./assets/icon-180.png","./assets/icon-192.png",

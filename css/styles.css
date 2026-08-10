@@ -1647,7 +1647,7 @@ footer{
 }
 
 /* ============================================================
-   1.4.1.7 – iPad-Optimierung
+   1.4.1.6 – iPad-Optimierung
    ============================================================ */
 
 /* Kompakter Tablet-/iPad-Landscape-Aufbau */
@@ -1738,286 +1738,112 @@ footer{
   footer{padding:6px 10px 12px!important;font-size:11px!important}
 }
 
-
 /* ============================================================
-   1.4.1.7 – Smartphone-Optimierung
+   1.4.1.8 – iPad-Fit / komplette Breite sichtbar
    ============================================================ */
-@media (max-width: 767px){
-  .app{
-    padding:10px 10px 8px!important;
-  }
+@media (min-width: 1024px) and (max-width: 1366px){
+  html,body{overflow-x:hidden!important}
+  .app{max-width:none!important;width:calc(100vw - 14px)!important;padding:8px 8px 6px!important}
 
   .kz-frozen-top{
-    grid-template-columns:1fr!important;
+    grid-template-columns:190px minmax(0,1fr)!important;
     gap:8px!important;
-    margin-bottom:8px!important;
+    margin-bottom:5px!important;
   }
-
-  .kz-frozen-logo{
-    display:none!important;
+  .kz-frozen-logo .ref-logo{
+    width:182px!important;
+    height:136px!important;
   }
-
   .kz-frozen-right{
-    grid-template-rows:auto auto!important;
-    gap:8px!important;
+    grid-template-rows:64px 40px!important;
+    gap:5px!important;
+    min-width:0!important;
   }
 
+  .kz-frozen-d001{
+    min-width:0!important;
+  }
   .kz-frozen-d001 .ref-info-strip{
-    height:auto!important;
-    min-height:0!important;
-    grid-template-columns:repeat(3,minmax(0,1fr))!important;
-    grid-auto-rows:minmax(82px,auto)!important;
-    margin:0!important;
+    height:64px!important;
+    min-height:64px!important;
+    border-radius:10px!important;
   }
-
   .kz-frozen-d001 .ref-info-cell{
-    padding:8px 6px!important;
-    gap:3px!important;
+    padding:4px 6px!important;
+    gap:1px!important;
+    min-width:0!important;
   }
-
-  .kz-frozen-d001 .ref-label{
-    font-size:9px!important;
-    letter-spacing:.04em!important;
-  }
-
-  .kz-frozen-d001 .ref-icon{
-    width:26px!important;
-    height:26px!important;
-  }
-
-  .kz-frozen-d001 .ref-info-cell strong,
-  .kz-frozen-d001 .ref-round-cell strong{
-    font-size:16px!important;
-    line-height:1.1!important;
-  }
+  .kz-frozen-d001 .ref-label{font-size:8px!important;letter-spacing:.08em!important}
+  .kz-frozen-d001 .ref-icon{width:21px!important;height:21px!important;margin-bottom:1px!important}
+  .kz-frozen-d001 .ref-info-cell strong{font-size:12px!important;line-height:1.05!important}
+  .kz-frozen-d001 .ref-round-cell strong{font-size:15px!important}
 
   .kz-frozen-d002{
-    min-height:auto!important;
-    height:auto!important;
-    display:grid!important;
-    grid-template-columns:1fr!important;
-    gap:8px!important;
-    padding:8px!important;
+    min-height:40px!important;
+    height:40px!important;
+    padding:4px 5px!important;
+    gap:4px!important;
+    border-radius:10px!important;
+    min-width:0!important;
   }
-
   .kz-frozen-d002 .kz-menu-left,
   .kz-frozen-d002 .kz-menu-right{
-    display:grid!important;
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    width:100%!important;
-    gap:8px!important;
+    gap:4px!important;
+    min-width:0!important;
   }
+  .kz-frozen-d002 .kz-menu-left{flex:0 1 auto!important}
+  .kz-frozen-d002 .kz-menu-right{flex:1 1 auto!important;justify-content:flex-start!important}
 
   .kz-frozen-d002 .kz-menu-btn,
   .kz-frozen-d002 .kz-action,
   .kz-frozen-d002 button{
-    min-height:48px!important;
-    height:48px!important;
-    padding:8px 10px!important;
-    font-size:12px!important;
-    line-height:1.15!important;
-    border-radius:10px!important;
-    width:100%!important;
-    justify-content:center!important;
-  }
-
-  .kz-frozen-d002 #startMainBtn{order:1!important;}
-  .kz-frozen-d002 #undoBtn{order:2!important;}
-  .kz-frozen-d002 #tournamentClock{
-    order:3!important;
-    grid-column:1 / -1!important;
-    width:100%!important;
-    min-width:0!important;
-    height:auto!important;
-    min-height:48px!important;
-    padding:8px 10px!important;
-  }
-  .kz-frozen-d002 #endBtn{
-    order:4!important;
-    grid-column:1 / -1!important;
-  }
-
-  .kz-frozen-d002 .kz-menu-time-head,
-  .kz-frozen-d002 .kz-menu-time-head strong,
-  .kz-frozen-d002 .kz-menu-time-head span{
-    font-size:11px!important;
-  }
-
-  .kz-frozen-d002 .kz-menu-time-track{
-    margin-top:6px!important;
-    height:10px!important;
-  }
-
-  .kz-workspace{
-    margin-top:8px!important;
-  }
-
-  .kz-game-grid{
-    grid-template-columns:1fr!important;
-    gap:12px!important;
-    margin-top:8px!important;
-  }
-
-  .kz-game-grid > .kz-table,
-  .kz-game-grid > .kz-ranking{
-    min-height:0!important;
-  }
-
-  .kz-ranking{
-    order:2!important;
-  }
-
-  .panel{
-    padding:14px!important;
-    border-radius:22px!important;
-  }
-
-  .kz-round-head{
-    align-items:flex-start!important;
-    gap:10px!important;
-  }
-
-  .kz-round-head h2{
-    font-size:19px!important;
-    line-height:1.08!important;
-  }
-
-  .kz-round-head p{
-    font-size:11px!important;
-    line-height:1.25!important;
-  }
-
-  .clock-now{
-    font-size:16px!important;
+    min-height:31px!important;
+    height:31px!important;
+    padding:5px 7px!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:7px!important;
+    flex:0 1 auto!important;
     white-space:nowrap!important;
   }
 
-  .status{
-    min-height:54px!important;
-    padding:10px 12px!important;
-    font-size:11px!important;
+  .kz-frozen-d002 .kz-menu-time,
+  .kz-frozen-d002 .kz-menu-right .kz-menu-time{
+    width:158px!important;
+    min-width:150px!important;
+    flex:0 0 158px!important;
+    height:31px!important;
+    padding:2px 5px 3px!important;
+    border-radius:7px!important;
+  }
+  .kz-frozen-d002 .kz-menu-time-head,
+  .kz-frozen-d002 .kz-menu-time-head strong{
+    font-size:7px!important;
+    line-height:1!important;
+  }
+  .kz-frozen-d002 .kz-menu-time-track{
+    height:6px!important;
+    margin-top:3px!important;
   }
 
-  .players-grid,
-  .players-grid.players-2,
-  .players-grid.players-3,
-  .players-grid.players-4,
-  .players-grid.players-5,
-  .players-grid.players-6,
-  .players-grid.players-7,
-  .players-grid.players-8,
-  .players-grid.players-9,
-  .players-grid.players-10,
-  .players-grid.players-11,
-  .players-grid.players-12{
-    grid-template-columns:1fr!important;
-    gap:8px!important;
-  }
-
-  .player-card{
-    min-height:58px!important;
-    padding:9px 10px!important;
-    border-radius:14px!important;
-  }
-
-  .player-card .player-name{
-    font-size:16px!important;
-  }
-
-  .player-card .profile-mark{
-    height:28px!important;
-  }
-
-  .kz-recent h3,
-  .kz-ranking h2{
-    font-size:18px!important;
-  }
-
-  .history-list .empty,
-  .ranking-list .empty{
-    padding:14px 12px!important;
-  }
-
-  footer{
-    padding:10px 12px 16px!important;
-    font-size:11px!important;
-    gap:8px!important;
-    flex-wrap:wrap!important;
-  }
-
-  #profileMenu{
-    left:10px!important;
-    right:10px!important;
-    top:10px!important;
-    width:auto!important;
-    max-height:calc(100vh - 20px)!important;
-    padding:14px!important;
-  }
-
-  #profileMenu .menu-head{
-    margin:-14px -14px 14px!important;
-    padding:12px 14px!important;
-  }
-
-  #profileMenu .menu-head h2{
-    font-size:22px!important;
-  }
-
-  #profileMenu .profile-form,
-  #profileMenu .profile-form label,
-  #profileMenu .tournament-settings,
-  #profileMenu > .controls{
-    grid-template-columns:1fr!important;
-  }
-
-  #profileMenu .profile-form{
-    gap:12px!important;
-  }
-
-  #profileMenu .profile-form label{
-    gap:6px!important;
-  }
-
-  #profileMenu .profile-form label > span,
-  #profileMenu .tournament-settings label > span{
-    font-size:14px!important;
-  }
-
-  #profileMenu .profile-form input,
-  #profileMenu .tournament-settings input,
-  #profileMenu .tournament-settings select{
-    min-height:52px!important;
-    height:52px!important;
-    font-size:16px!important;
-    border-radius:14px!important;
-    padding:10px 14px!important;
-  }
-
-  #profileMenu #profileGrid.profile-grid{
-    grid-template-columns:1fr!important;
+  .kz-game-grid{
+    grid-template-columns:minmax(0,1fr) 290px!important;
     gap:10px!important;
+    align-items:stretch!important;
   }
+  .panel{padding:11px!important;border-radius:15px!important}
+  .kz-round-head h2{font-size:18px!important}
+  .kz-round-head p{font-size:11px!important}
+  .clock-now{font-size:15px!important}
+  .status{min-height:27px!important;padding:6px 8px!important}
 
-  #profileMenu #profileGrid .profile-card{
-    min-height:74px!important;
-    padding:10px 12px!important;
-    border-radius:18px!important;
-  }
+  .players-grid{gap:6px!important}
+  .player-card{min-height:48px!important;padding:6px 8px!important;border-radius:12px!important}
+  .player-card .player-name{font-size:13px!important}
+  .player-card .profile-mark{height:22px!important}
 
-  #profileMenu .tournament-settings{
-    gap:12px!important;
-    padding:14px!important;
-  }
+  .ranking-card{min-height:37px!important;padding:6px 8px!important}
+  .ranking-name{font-size:12.5px!important}
 
-  #profileMenu > .controls{
-    gap:10px!important;
-  }
-
-  #profileMenu > .controls button,
-  #profileMenu #addProfileBtn,
-  #profileMenu #closeProfileMenuBtn{
-    min-height:50px!important;
-    font-size:15px!important;
-    border-radius:14px!important;
-  }
+  footer{max-width:none!important;width:calc(100vw - 14px)!important;padding:5px 8px 10px!important;font-size:11px!important}
 }
